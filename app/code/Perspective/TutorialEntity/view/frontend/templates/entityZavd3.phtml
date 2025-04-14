@@ -1,0 +1,21 @@
+<?php 
+/** @var \Perspective\TutorialEntity\ViewModel\EntityZavd3 $viewModel */
+$viewModel = $block->getData('viewModel');
+$customers = $viewModel->getAllCustomers();
+?>
+
+<h2>Створити з адмінки покупця (customer).
+     Отримати  список всіх покупців та вивести доступні дані про них (getData()).</h2>
+             <hr>
+
+<h2>Список всіх покупців</h2>
+<?php foreach ($customers as $customer): ?>
+    <h3>Покупець: <?= $customer->getFirstname() . ' ' . $customer->getLastname(); ?></h3>
+    <ul>
+        <li>ID: <?= $customer->getId(); ?></li>
+        <li>Email: <?= $customer->getEmail(); ?></li>
+        <li>First Name: <?= $customer->getFirstname(); ?></li>
+        <li>Last Name: <?= $customer->getLastname(); ?></li>
+    </ul>
+    <hr>
+<?php endforeach; ?>

@@ -1,0 +1,16 @@
+<?php 
+/** @var \Perspective\TutorialEntity\ViewModel\EntityRepositoryVM $viewModel */
+$viewModel = $block->getData('viewModel');
+/** @var \Magento\Catalog\Model\Product $product */ // для ошибки от intelephense?>
+
+<?php $product = $viewModel->getProductById('1'); ?>
+<?php if (!is_null($product)) : ?>
+    <h2><?= $product->getName(); ?></h2>
+    <p><?= $product->getDescription() ?></p>
+<?php endif; ?>
+<hr>
+<h2>Продукти дешевше 20</h2>
+<?php foreach ($viewModel->getCheapProducts(20) as $cheapProduct): ?>
+    <h2> <?= $cheapProduct->getName(); ?> </h2>
+    <h3> <?= $cheapProduct->getPrice(); ?> </h3>
+<?php endforeach; ?>

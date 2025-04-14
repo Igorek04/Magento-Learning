@@ -1,0 +1,10 @@
+<?php
+
+/** @var $block \Perspective\ViewModelExamp\ViewModel\ViewModelExamp */
+/** @var $escaper \Magento\Framework\Escaper */
+
+$viewModel = $block->getViewModel();
+?>
+
+<h2>Welcome to PerspectiveStudio</h2>
+<h3><?= $escaper->escapeHtml($viewModel->sayHello()); ?></h3>

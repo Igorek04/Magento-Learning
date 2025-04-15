@@ -1,0 +1,17 @@
+<?php
+/** @var \Perspective\ProductTools\ViewModel\ProductsByVisibility $viewModel */
+$viewModel = $block->getData('viewModel');
+
+$visibilityLevel = 1; // Not Visible(1), Catalog(2), Search(3), Catalog and Search(4).
+
+$productCollection = $viewModel->getProductsByVisibility($visibilityLevel);
+?>
+
+<h2>Get Product Collection Filtered by Visibility</h2>
+
+<h3>Visibility Level: <?= $visibilityLevel ?></h3>
+<ul>
+    <?php foreach ($productCollection as $product): ?>
+        <li><?= $product->getName(); ?></li>
+    <?php endforeach; ?>
+</ul>

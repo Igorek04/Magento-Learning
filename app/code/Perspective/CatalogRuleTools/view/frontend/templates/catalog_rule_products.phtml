@@ -1,0 +1,17 @@
+<?php
+/** @var \Perspective\CatalogRuleTools\ViewModel\CatalogRuleProducts $viewModel */
+$viewModel = $block->getData('viewModel');
+
+$ruleId = 1; // ID=1 -> "20% off all Women’s and Men’s Pants"
+
+$products = $viewModel->getProductsByCatalogRuleId($ruleId);
+?>
+
+<h2>Products from Catalog Rule (ID: <?= $ruleId ?>)</h2>
+<ul>
+    <?php foreach ($products as $product): ?>
+        <li>
+            <strong><?= $product->getName(); ?></strong> - <?= $product->getPrice(); ?>
+        </li>
+    <?php endforeach; ?>
+</ul>

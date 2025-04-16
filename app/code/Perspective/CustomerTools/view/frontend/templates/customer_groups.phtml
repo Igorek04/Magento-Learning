@@ -1,0 +1,15 @@
+<?php
+/** @var \Perspective\CustomerTools\ViewModel\CustomerGroups $viewModel */
+$viewModel = $block->getData('viewModel');
+$groups = $viewModel->getCustomerGroups();
+?>
+
+<h3>Завдання 2.5 - Get Customer Groups</h3>
+
+<ul>
+    <?php foreach ($groups as $group): ?>
+        <li>
+            <?= $group->getCode() ?> (ID: <?= $group->getId() ?>)
+        </li>
+    <?php endforeach; ?>
+</ul>

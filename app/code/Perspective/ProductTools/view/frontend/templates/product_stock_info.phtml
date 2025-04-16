@@ -1,0 +1,20 @@
+<?php
+/** @var \Perspective\ProductTools\ViewModel\ProductStockInfo $viewModel */
+$viewModel = $block->getData('viewModel');
+
+$productId = 111; // Product ID
+
+$product = $viewModel->getProductById($productId);
+$stockInfo = $viewModel->getStockInformation($product);
+?>
+
+<h3>Завдання 2.1 - Get Product Stock Info (Qty, MinQty, ...)</h3>
+
+<h3>Product (ID): <?= $product->getName() ?> (<?= $product->getId() ?>)</h3>
+<ul>
+    <li>Qty: <?= $stockInfo['qty'] ?></li>
+    <li>MinQty: <?= $stockInfo['min_qty'] ?></li>
+    <li>MinSaleQty: <?= $stockInfo['min_sale_qty'] ?></li>
+    <li>MaxSaleQty: <?= $stockInfo['max_sale_qty'] ?></li>
+    <li>IsInStock: <?= $stockInfo['is_in_stock'] ?></li>
+</ul>

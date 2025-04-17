@@ -2,55 +2,39 @@
 
 namespace Perspective\OrderTools\ViewModel;
 
-use Magento\Sales\Api\OrderRepositoryInterface;
 use Magento\Framework\View\Element\Block\ArgumentInterface;
-use Magento\Framework\Api\SearchCriteriaBuilder;
-use Magento\Sales\Api\Data\OrderInterface;
+use Magento\Sales\Model\ResourceModel\Order\Collection;
+use Magento\Sales\Model\ResourceModel\Order\CollectionFactory;
 
-/**
- * Class OrderFilter
- * @package Perspective\OrderTools\ViewModel
- */
 class OrderFilter implements ArgumentInterface
 {
     /**
-     * @var OrderRepositoryInterface
+     * @var CollectionFactory
      */
-    private $orderRepository;
-
-    /**
-     * @var SearchCriteriaBuilder
-     */
-    private $searchCriteriaBuilder;
+    private $orderCollectionFactory;
 
     /**
      * OrderFilter constructor.
-     * 
-     * @param OrderRepositoryInterface $orderRepository
-     * @param SearchCriteriaBuilder $searchCriteriaBuilder
+     *
+     * @param CollectionFactory $orderCollectionFactory
      */
     public function __construct(
-        OrderRepositoryInterface $orderRepository,
-        SearchCriteriaBuilder $searchCriteriaBuilder
+        CollectionFactory $orderCollectionFactory
     ) {
-        $this->orderRepository = $orderRepository;
-        $this->searchCriteriaBuilder = $searchCriteriaBuilder;
+        $this->orderCollectionFactory = $orderCollectionFactory;
     }
 
     /**
-     * Get orders filtered by grand total(Total price)
-     * 
+     * Get filtered orders based on grand total.
+     *
      * @param float $minPrice
-     * @return OrderInterface[]
+     * @return Collection
      */
-    public function getFilteredOrders(float $minPrice): array
+    public function getFilteredOrders(float $minPrice): Collection
     {
-        $searchCriteria = $this->searchCriteriaBuilder
-            ->addFilter('grand_total', $minPrice, 'gteq')
-            ->create();
+        $collection = $this->orderCollectionFactory->create();
+        $collection->addFieldToFilter('grand_total', ['gteq' => $minPrice]);
 
-        $result = $this->orderRepository->getList($searchCriteria);
-
-        return $result->getItems();
+        return $collection;
     }
 }

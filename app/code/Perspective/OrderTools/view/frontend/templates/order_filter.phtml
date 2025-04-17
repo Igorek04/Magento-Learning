@@ -2,12 +2,12 @@
 /** @var \Perspective\OrderTools\ViewModel\OrderFilter $viewModel */
 $viewModel = $block->getData('viewModel');
 
-$minPrice = 39; // Минимальная цена для фильтрации заказов
+$minPrice = 39;
 
 $orders = $viewModel->getFilteredOrders($minPrice);
 ?>
 
-<h3>Завдання 2.4 - Get Filtered Orders (TotalPrice>39)</h3>
+<h3>Завдання 2.4 - Get Collection of Filtered Orders (TotalPrice>39)</h3>
 
 <ul>
     <?php foreach ($orders as $order): ?>

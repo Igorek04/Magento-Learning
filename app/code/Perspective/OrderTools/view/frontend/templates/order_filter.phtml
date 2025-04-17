@@ -1,0 +1,34 @@
+<?php
+/** @var \Perspective\OrderTools\ViewModel\OrderFilter $viewModel */
+$viewModel = $block->getData('viewModel');
+
+$minPrice = 39; // Минимальная цена для фильтрации заказов
+
+$orders = $viewModel->getFilteredOrders($minPrice);
+?>
+
+<h3>Завдання 2.4 - Get Filtered Orders (TotalPrice>39)</h3>
+
+<ul>
+    <?php foreach ($orders as $order): ?>
+        <li>
+            <h4>
+            Order ID: <?= $order->getEntityId() ?> | 
+            Status: <?= $order->getStatus() ?> | 
+            Total: <?= $order->getGrandTotal() ?> <?= $order->getOrderCurrencyCode() ?> | 
+            Customer: <?= $order->getCustomerFirstname() ?> <?= $order->getCustomerLastname() ?><br>
+
+            Items:
+            </h4>
+            <ul>
+                <?php foreach ($order->getItems() as $item): ?>
+                    <li>
+                        <?= $item->getName() ?> (<?= $item->getSku() ?>) | 
+                        Quantity: <?= number_format($item->getQtyOrdered(), 0, '.', '') ?> |
+                        Price: <?= $item->getPrice() ?> <?= $order->getOrderCurrencyCode() ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul><hr>
+        </li>
+    <?php endforeach; ?>
+</ul>

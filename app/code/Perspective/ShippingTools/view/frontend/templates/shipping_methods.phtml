@@ -1,0 +1,17 @@
+<?php
+/** @var \Perspective\ShippingTools\ViewModel\ShippingMethods $viewModel */
+$viewModel = $block->getData('viewModel');
+$activeShippingMethods = $viewModel->getActiveShippingMethods();
+?>
+
+<h3>Завдання 2.7 - Get list of Active Shipping Methods</h3>
+
+<ul>
+    <?php foreach ($activeShippingMethods as $method): ?>
+        <li>
+            Title: <?= $method['title'] ?><br>
+            Code: <?= $method['code'] ?>
+        </li>
+        <hr>
+    <?php endforeach; ?>
+</ul>

@@ -1,0 +1,11 @@
+<?php
+/** @var \Perspective\TutorialProductPage\ViewModel\Custom $viewModel */
+$viewModel = $block->getData('viewModel');
+
+$productId = $block->getProduct()->getId();
+?>
+
+<? if ($viewModel->isAvailable($productId)): ?>
+<h1>Custom TEXT</h1>
+<h2><?= $viewModel->getAnyCustomValue($productId); ?></h2>
+<? endif ?>

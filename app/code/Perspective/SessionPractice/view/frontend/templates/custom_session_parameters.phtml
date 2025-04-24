@@ -1,0 +1,28 @@
+<?php
+/** @var \Perspective\SessionPractice\ViewModel\CustomSessionParameters $viewModel */
+$viewModel = $block->getData('viewModel');
+
+echo "<h2>Set and Get Custom Session Parameters</h2>";
+
+$viewModel->getCatalogSession()->setMyName('Perspective');
+echo $viewModel->getCatalogSession()->getMyName() . '<br />'; // output: Perspective
+
+$viewModel->getCustomerSession()->setTestData('Hello World');
+echo $viewModel->getCustomerSession()->getTestData() . '<br />'; // output: Hello World
+
+$viewModel->getCheckoutSession()->setTestHello('Test Hello Value');
+echo $viewModel->getCheckoutSession()->getTestHello() . '<br />'; // output: Test Hello Value
+
+
+echo "<h3>Catalog Session</h3><pre>";
+print_r($viewModel->getCatalogSession()->getData());
+echo "</pre>";
+
+echo "<h3>Customer Session</h3><pre>";
+print_r($viewModel->getCustomerSession()->getData());
+echo "</pre>";
+
+echo "<h3>Checkout Session</h3><pre>";
+print_r($viewModel->getCheckoutSession()->getData());
+echo "</pre>";
+?>

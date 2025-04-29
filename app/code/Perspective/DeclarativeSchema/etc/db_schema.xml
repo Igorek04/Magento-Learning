@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="new_custom_table">
+        <column xsi:type="int" name="entity_id" padding="10" identity="true" unsigned="true" nullable="false" comment="Entity Id"/>
+        <column xsi:type="int" name="reference_id" padding="10" unsigned="true" nullable="false" comment="Reference Id"/>
+        <column xsi:type="text" name="title" nullable="false" comment="Title"/>
+        <column xsi:type="varchar" name="body" onCreate="migrateDataFrom(description)" nullable="false" length="255" comment="Body"/>
+        <column xsi:type="varchar" name="comment" nullable="false" length="255" comment="user_comment" disabled="true"/>
+        <column xsi:type="timestamp" name="time" comment="Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+
+        <!--Index -->
+        <index referenceId="INDEX_REFERENCE" indexType="btree">
+            <column name="reference_id"/>
+        </index>
+        
+        <!-- Foreign Key
+        <constraint xsi:type="foreign" referenceId="ADD_REF_FOR_CUSTOM_TABLE" table="custom_table"
+                    column="reference_id" referenceTable="reference_custom_table" referenceColumn="reference_column"
+                    onDelete="CASCADE"/> 
+        -->
+    </table>
+</schema>

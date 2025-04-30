@@ -1,0 +1,24 @@
+{
+    "intray_table1": {
+        "column": {
+            "table_1_id": true,
+            "name": true,
+            "body": true
+        },
+        "index": {
+            "INTRAY_TABLE1_TABLE_1_ID": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "intray_table2": {
+        "column": {
+            "table_2_id": true,
+            "body": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="consultation">
+        <column xsi:type="int" name="consultation_id" padding="10" identity="true" unsigned="true" nullable="false" comment="Consultation ID"/>
+        <column xsi:type="varchar" name="title" length="255" nullable="false" comment="Consultation Title"/>
+        <column xsi:type="decimal" name="duration_hours" nullable="false" scale="1" precision="3" comment="Duration in Hours"/>
+        <column xsi:type="datetime" name="consultation_datetime" nullable="false" comment="Consultation Date and Time"/>
+        <column xsi:type="int" name="customer_id" unsigned="true" nullable="false" comment="Customer ID"/>
+        <column xsi:type="decimal" name="discount_rate" nullable="false" scale="2" precision="3" default="0.00" comment="Discount Rate"/>
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="consultation_id"/>
+        </constraint>
+
+        <index referenceId="CONSULTATION_CUSTOMER_ID" indexType="btree">
+            <column name="customer_id"/>
+        </index>
+
+        <constraint xsi:type="foreign" 
+            referenceId="CONSULTATION_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID"
+            table="consultation" 
+            column="customer_id"
+            referenceTable="customer_entity" 
+            referenceColumn="entity_id"
+            onDelete="CASCADE"/>
+    </table>
+</schema>

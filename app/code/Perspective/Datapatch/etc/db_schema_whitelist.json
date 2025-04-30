@@ -1,0 +1,13 @@
+{
+    "customer_contactdetails": {
+        "column": {
+            "id": true,
+            "customer_name": true,
+            "customer_email": true,
+            "contact_no": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

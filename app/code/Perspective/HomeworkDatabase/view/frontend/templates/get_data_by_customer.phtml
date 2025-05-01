@@ -1,0 +1,27 @@
+<?php
+/** @var \Perspective\HomeworkDatabase\ViewModel\GetDataByCustomer $viewModel */
+$viewModel = $block->getData('viewModel');
+
+$customerId = 1;
+$datetimeMin = '2025-05-01 06:00:00';
+$datetimeMax = '2025-05-03 21:00:00';
+
+$collection = $viewModel->getFilteredConsultations($customerId, $datetimeMin, $datetimeMax);
+
+echo '<h3>Завдання 9: Get ConsultationData Filtered By Customer and Datetime</h3>';
+
+echo ('<h3>CustomerID = ' . $customerId . '<br>
+      Datetime: <br>
+      From: ' . $datetimeMin . '<br>
+      To: ' . $datetimeMax . '</h3><h4>');
+
+foreach ($collection as $consultation): ?>
+    <p>
+        Consultation ID: <?= $consultation->getData('consultation_id') ?><br>
+        Title: <?= $consultation->getData('title') ?><br>
+        Duration: <?= $consultation->getData('duration_hours') ?>h<br>
+        Discount: <?= $consultation->getData('discount_rate') * 100 ?>%<br>
+        Price Per Hour: <?= $consultation->getData('price_per_hour') ?>
+    </p>
+    <hr>
+<?php endforeach; ?>

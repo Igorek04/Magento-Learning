@@ -1,0 +1,10 @@
+<?php
+/** @var \Perspective\SystemConfigExample\Block\Config $block */
+?>
+<div class="template">
+    <?php if ($block->isEnabled()): ?>
+        <p><strong>Title:</strong> <?= $block->getTitle(); ?></p>
+        <p><strong>Secret:</strong> <?= $block->getSecret(); ?></p>
+        <p><strong>Option:</strong> <?= $block->getOption(); ?></p>
+    <?php endif; ?>
+</div>

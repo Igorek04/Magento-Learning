@@ -1,0 +1,16 @@
+<?php
+/** @var \Perspective\HomeworkLowStockLabel\ViewModel\LowStockLabel $viewModel */
+
+use Magento\InventoryCatalogFrontendUi\Controller\Product\GetQty;
+
+$viewModel = $block->getData('viewModel');
+
+$productQty = $viewModel->getProductQty()-1;
+
+if ($viewModel->isModuleEnabled() && $productQty < $viewModel->getLowStockLevel()):
+        echo('<h4>Stock is low...<br>
+              Only ' . $productQty . ' left<br>'
+            );
+endif;
+?>
+

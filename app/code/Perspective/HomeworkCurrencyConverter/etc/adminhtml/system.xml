@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="homework" translate="label" sortOrder="1001">
+            <label>Homework Configs</label>
+        </tab>
+        <section id="homeworkcurrencyconverter"
+                 translate="label"
+                 sortOrder="100"
+                 showInDefault="1"
+                 showInWebsite="1"
+                 showInStore="1">
+            <label>Currency Converter Settings</label>
+            <tab>homework</tab>
+            <resource>Perspective_HomeworkCurrencyConverter::config</resource>
+
+            <group id="settings"
+                   translate="label"
+                   type="text"
+                   sortOrder="10"
+                   showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="1">
+                <label>Currency Settings</label>
+
+                <!-- Module Enable -->
+                <field id="enabled"
+                       translate="label"
+                       type="select"
+                       sortOrder="1"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>homeworkcurrencyconverter/settings/enabled</config_path>
+                </field>
+
+                <!-- UAH Enable -->
+                <field id="uah_enable"
+                       translate="label"
+                       type="select"
+                       sortOrder="2"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>UAH Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <config_path>homeworkcurrencyconverter/settings/uah_enable</config_path>
+                </field>
+
+                <!-- UAH Course -->
+                <field id="uah_course"
+                       translate="label"
+                       type="text"
+                       sortOrder="3"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>UAH Course</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="uah_enable">1</field>
+                    </depends>
+                    <config_path>homeworkcurrencyconverter/settings/uah_course</config_path>
+                </field>
+
+                <!-- RUB Enable -->
+                <field id="rub_enable"
+                       translate="label"
+                       type="select"
+                       sortOrder="4"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>RUB Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <config_path>homeworkcurrencyconverter/settings/rub_enable</config_path>
+                </field>
+
+                <!-- RUB Course -->
+                <field id="rub_course"
+                       translate="label"
+                       type="text"
+                       sortOrder="5"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>RUB Course</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="rub_enable">1</field>
+                    </depends>
+                    <config_path>homeworkcurrencyconverter/settings/rub_course</config_path>
+                </field>
+
+                <!-- EURO Enable -->
+                <field id="euro_enable"
+                       translate="label"
+                       type="select"
+                       sortOrder="6"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>EURO Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                    <config_path>homeworkcurrencyconverter/settings/euro_enable</config_path>
+                </field>
+
+                <!-- EURO Course -->
+                <field id="euro_course"
+                       translate="label"
+                       type="text"
+                       sortOrder="7"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>EURO Course</label>
+                    <depends>
+                        <field id="enabled">1</field>
+                        <field id="euro_enable">1</field>
+                    </depends>
+                    <config_path>homeworkcurrencyconverter/settings/euro_course</config_path>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,36 @@
+<?php
+/** @var \Perspective\HomeworkCurrencyConverter\ViewModel\CurrencyConverter $viewModel */
+$viewModel = $block->getData('viewModel');
+
+$uahSymb = $viewModel->getCurrencySymbol('UAH');
+$rubSymb = $viewModel->getCurrencySymbol('RUB');
+$eurSymb = $viewModel->getCurrencySymbol('EUR');
+
+$productPrice = $viewModel->getProductPrice();
+
+if ($viewModel->isModuleEnabled()):
+    echo('<h3>Custom Course:</h3><h4>');
+
+    if ($viewModel->isUAHConverterEnabled()):
+        echo('UAH: ' . number_format($viewModel->getCustomCourseUAH() * $productPrice, 2) . $uahSymb . '<br>');
+    endif;
+    if ($viewModel->isRUBConverterEnabled()):
+        echo('RUB: ' . number_format($viewModel->getCustomCourseRUB() * $productPrice, 2) . $rubSymb . '<br>');
+    endif;
+    if ($viewModel->isEUROConverterEnabled()):
+        echo('EUR: ' . number_format($viewModel->getCustomCourseEURO() * $productPrice, 2) . $eurSymb . '<br>');
+    endif;
+    
+    echo('</h4><h3>Magento Course:</h3><h4>');
+
+    if ($viewModel->isUAHConverterEnabled()):
+        echo('UAH: ' . number_format($viewModel->getMagentoCourse('UAH') * $productPrice, 2) . $uahSymb . '<br>');
+    endif;
+    if ($viewModel->isRUBConverterEnabled()):
+        echo('RUB: ' . number_format($viewModel->getMagentoCourse('RUB') * $productPrice, 2) . $uahSymb . '<br>');
+    endif;
+    if ($viewModel->isEUROConverterEnabled()):
+        echo('EUR: ' . number_format($viewModel->getMagentoCourse('EUR') * $productPrice, 2) . $uahSymb . '<br>');
+    endif;
+endif;
+?>

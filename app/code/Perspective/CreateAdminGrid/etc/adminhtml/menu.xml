@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Perspective_CreateAdminGrid::testik"
+             title="TESTIK"
+             module="Perspective_CreateAdminGrid"
+             sortOrder="51"
+             resource="Perspective_CreateAdminGrid::testik"/>
+        
+        <add 
+            id="Perspective_CreateAdminGrid::practice" 
+            title="Practice" 
+            module="Perspective_CreateAdminGrid" 
+            sortOrder="52" 
+            resource="Perspective_CreateAdminGrid::practice"/>
+
+        <add 
+            id="Perspective_CreateAdminGrid::post" 
+            title="Manage Posts" 
+            module="Perspective_CreateAdminGrid" 
+            sortOrder="53" 
+            resource="Perspective_CreateAdminGrid::post" 
+            parent="Perspective_CreateAdminGrid::practice"
+            action="perspective_createadmingrid/post"/>
+    </menu>
+</config>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<schema
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table
+        name="perspective_blog"
+        resource="default"
+        comment="Blog Table">
+        
+        <column
+            xsi:type="int"
+            name="blog_id"
+            padding="10"
+            identity="true"
+            unsigned="true"
+            nullable="false"
+            comment="Blog Id"/>
+        <column
+            xsi:type="varchar"
+            name="blog_title"
+            nullable="false"
+            length="255"
+            comment="Blog Title"/>
+        <column
+            xsi:type="text"
+            name="blog_description"
+            comment="Blog Description"/>
+        <column
+            xsi:type="int"
+            name="status"
+            comment="Status"
+            nullable="false"/>
+        <column
+            xsi:type="timestamp"
+            name="created_at"
+            nullable="false"
+            comment="Created At"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="blog_id"/>
+        </constraint>
+    </table>
+</schema>

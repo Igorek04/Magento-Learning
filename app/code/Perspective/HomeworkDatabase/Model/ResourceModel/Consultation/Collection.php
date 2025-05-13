@@ -3,17 +3,18 @@
 namespace Perspective\HomeworkDatabase\Model\ResourceModel\Consultation;
 
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
+use Perspective\HomeworkDatabase\Model\ResourceModel\Consultation as ConsultationResourceModel;
+use Perspective\HomeworkDatabase\Model\Consultation as ConsultationModel;
 
 class Collection extends AbstractCollection
 {
     /**
-    * Define resource model
+    * Initialize resource collection
     *
     * @return void
     */
     protected function _construct()
     {
-        $this->_init('Perspective\HomeworkDatabase\Model\Consultation',
-                     'Perspective\HomeworkDatabase\Model\ResourceModel\Consultation');
+        $this->_init(ConsultationModel::class, ConsultationResourceModel::class);
     }
 }

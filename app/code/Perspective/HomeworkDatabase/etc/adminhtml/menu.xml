@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add 
+            id="Perspective_HomeworkDatabase::homework" 
+            title="Homework" 
+            module="Perspective_HomeworkDatabase" 
+            sortOrder="54" 
+            resource="Perspective_HomeworkDatabase::homework"/>
+        <add 
+            id="Perspective_HomeworkDatabase::hwdb_grid"
+            title="Consultation Grid"
+            module="Perspective_HomeworkDatabase"
+            sortOrder="1"
+            resource="Perspective_HomeworkDatabase::hwdb_grid"
+            parent="Perspective_HomeworkDatabase::homework"
+            action="hwdb/index/index"/>
+    </menu>
+</config>

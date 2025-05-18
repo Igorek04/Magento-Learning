@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route id="blogmanager" frontName="blog">
+            <module name="Webkul_BlogManager" />
+        </route>
+    </router>
+</config>
+<!-- URL-route 
+I) Front Name
+II) Controller Name
+III) Action Name
+
+Magento 2 areas:
+i) frontend (Storefront)
+ii) adminhtml (Magento Admin)
+iii) base
+iv) webapi_rest
+v) webapi_soap
+vi) graphql
+vii) crontab-->

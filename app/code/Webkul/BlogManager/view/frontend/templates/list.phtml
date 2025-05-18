@@ -1,0 +1,72 @@
+<div class="blog-list-table-container">
+	<table class="blog-list-table">
+		<tr class="blog-list-table-head">
+			<th class="blog-list-table-id">
+				<?= __("Id")?>
+			</th>
+			<th class="blog-list-table-title">
+				<?= __("Title")?>
+			</th>
+			<th class="blog-list-table-content">
+				<?= __("Content")?>
+			</th>
+			<th class="blog-list-table-status">
+				<?= __("Status")?>
+			</th>
+			<th class="blog-list-table-date">
+				<?= __("Updated At")?>
+			</th>
+			<th class="blog-list-table-date">
+				<?= __("Created At")?>
+			</th>
+			<th class="blog-list-table-action-edit">
+				<?= __("Edit")?>
+			</th>
+			<th class="blog-list-table-action-delete">
+				<?= __("Delete")?>
+			</th>
+		</tr>
+		<?php
+		$blogs = $block->getBlogs();
+		$statuses = $block->getStatuses();
+		foreach ($blogs as $blog) {?>
+			<tr class="blog-list-table-row">
+				<td class="blog-list-table-id">
+					<?= $blog->getId()?>
+				</td>
+				<td class="blog-list-table-title">
+					<?= $blog->getTitle()?>
+				</td>
+				<td class="blog-list-table-content">
+					<?= substr($blog->getContent(), 0, 20).'...'?>
+				</td>
+				<td class="blog-list-table-status">
+					<?= $statuses[$blog->getStatus()]?>
+				</td>
+				<td class="blog-list-table-date">
+					<?= $block->getFormattedDate($blog->getUpdatedAt())?>
+				</td>
+				<td class="blog-list-table-date">
+					<?= $block->getFormattedDate($blog->getCreatedAt())?>
+				</td>
+				<td class="blog-list-table-action blog-list-table-action-edit">
+					<a href="<?= $block->getUrl('blog/manage/edit', ['id'=>$blog->getId()])?>">
+						<?= __('Edit') ?>
+					</a>
+				</td>
+				<td class="blog-list-table-action blog-list-table-action-delete">
+					<a href="<?= $block->getUrl('blog/manage/delete', ['id'=>$blog->getId()])?>">
+						<?= __('Delete') ?>
+					</a>
+				</td>
+			</tr>
+		<?php } ?>
+	</table>
+</div>
+<script type="text/x-magento-init">
+{
+	"*": {
+		"bloglist": ""
+	}
+}
+</script>

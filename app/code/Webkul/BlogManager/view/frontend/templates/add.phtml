@@ -1,0 +1,28 @@
+<div class="blog-container">
+    <form 
+        class="blog-form" 
+        method="post" 
+        action=<?php echo $block->getUrl('blog/manage/save'); ?> 
+        data-mage-init='{"validation": {}}'>
+
+        <div class="blog-form-field-container">
+            <span class="blog-form-field-label"><?= __('Title') ?>:</span>
+            <input type="text" name="title" class="required-entry blog-form-field" />
+        </div>
+
+        <div class="blog-form-field-container">
+            <span class="blog-form-field-label"><?= __('Content') ?>:</span>
+                    <textarea name="content" class="required-entry validate-no-html-tags blog-form-field"></textarea>
+        </div>
+
+        <div class="blog-form-action-container">
+            <button type="submit" class="blog-form-action"><?= __('Submit') ?></button>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+<!-- vendor/magento/magento2-base/lib/web/mage/validation.js.  -> validate rules-->

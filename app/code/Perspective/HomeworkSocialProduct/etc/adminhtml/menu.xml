@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Perspective_HomeworkSocialProduct::config"
+            title="Social Config"
+            module="Perspective_HomeworkSocialProduct"
+            sortOrder="57"
+            parent="Perspective_HomeworkDatabase::homework"
+            action="adminhtml/system_config/edit/section/homeworkSocialProduct"
+            resource="Perspective_HomeworkSocialProduct::config"
+        />
+    </menu>
+</config>

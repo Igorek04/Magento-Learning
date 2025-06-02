@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Controller\Product\View">
+        <plugin name="Perspective_ChangeProductViewPageLayout::change_product_view" 
+                type="Perspective\ChangeProductViewPageLayout\Plugin\Catalog\Controller\Product\View"
+                sortOrder="1"
+                disabled="false"/>
+    </type>
+</config>

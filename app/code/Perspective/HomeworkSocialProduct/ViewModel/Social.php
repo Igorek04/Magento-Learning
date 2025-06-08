@@ -2,62 +2,38 @@
 namespace Perspective\HomeworkSocialProduct\ViewModel;
 
 use Magento\Framework\View\Element\Block\ArgumentInterface;
-use Magento\Catalog\Helper\Data as CatalogHelper;
-use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Framework\Pricing\PriceCurrencyInterface;
+use Perspective\HomeworkSocialProduct\Helper\Social as SocialHelper;
 
 class Social implements ArgumentInterface
 {
     /**
-     * @var CatalogHelper
+     * @var SocialHelper
      */
-    private $catalogHelper;
+    protected $socialHelper;
 
     /**
-     * @var ScopeConfigInterface
-     */
-    private $scopeConfig;
-
-    /**
-     * @var PriceCurrencyInterface
-     */
-    private $priceCurrency;
-
-    /**
-     * @param CatalogHelper $catalogHelper
-     * @param ScopeConfigInterface $scopeConfig
-     * @param PriceCurrencyInterface $priceCurrency
+     * @param SocialHelper $socialHelper
      */
     public function __construct(
-        CatalogHelper $catalogHelper,
-        ScopeConfigInterface $scopeConfig,
-        PriceCurrencyInterface $priceCurrency,
+        SocialHelper $socialHelper
     ) {
-        $this->catalogHelper = $catalogHelper;
-        $this->scopeConfig = $scopeConfig;
-        $this->priceCurrency = $priceCurrency;
+        $this->socialHelper = $socialHelper;
     }
 
     /**
      * @return bool
      */
-    public function isModuleEnabled($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT)
+    public function isModuleEnabled()
     {
-        return $this->scopeConfig->isSetFlag(
-            'homeworkSocialProduct/settings/enabled',
-            $scope
-        );
+        return $this->socialHelper->isModuleEnabled();
     }
 
     /**
      * @return string
      */
-    public function getSocialDiscountRate($scope = ScopeConfigInterface::SCOPE_TYPE_DEFAULT)
+    public function getSocialDiscountRate()
     {
-        return $this->scopeConfig->getValue(
-            'homeworkSocialProduct/settings/social_discount_rate',
-            $scope
-        );
+        return $this->socialHelper->getSocialDiscountRate();
     }
     
     /**
@@ -65,7 +41,7 @@ class Social implements ArgumentInterface
      */
     public function getCurrentProduct()
     {
-        return $this->catalogHelper->getProduct();
+        return $this->socialHelper->getCurrentProduct();
     }
 
     /**
@@ -73,7 +49,7 @@ class Social implements ArgumentInterface
      */
     public function isSocialAttributeEnabled()
     {
-        return $this->getCurrentProduct()->getData('is_social');
+        return $this->socialHelper->isSocialAttributeEnabled();
     }
 
     /**
@@ -81,7 +57,7 @@ class Social implements ArgumentInterface
      */
     public function getSocialPrice()
     {
-        return $this->getCurrentProduct()->getFinalPrice() * (1 - $this->getSocialDiscountRate() / 100);
+        return $this->socialHelper->getSocialPrice();
     }
 
     /**
@@ -89,6 +65,6 @@ class Social implements ArgumentInterface
      */
     public function getCurrencySymbol()
     {
-        return $this->priceCurrency->getCurrencySymbol();
+        return $this->socialHelper->getCurrencySymbol();
     }
 }

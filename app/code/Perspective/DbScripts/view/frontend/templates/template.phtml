@@ -1,0 +1,12 @@
+<?php
+/** @var Magento\Framework\View\Element\Template $block */
+$viewModel = $block->getData('post_model');
+
+$collection = $viewModel->getPostCollection();
+foreach($collection as $item){
+
+    echo "<pre>";
+    print_r($item->getData());
+    echo "</pre>";
+}
+?>

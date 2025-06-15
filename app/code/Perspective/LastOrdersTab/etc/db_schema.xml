@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="perspective_last_product_orders" resource="default" engine="innodb" comment="Last Product Orders">
+        <column name="id" xsi:type="int" nullable="false" identity="true" unsigned="true" comment="ID"/>
+        <column name="product_id" xsi:type="int" nullable="false" unsigned="true" comment="Product ID"/>
+        <column name="order_date" xsi:type="datetime" nullable="false" comment="Order Date"/>
+        
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+
+        <index referenceId="PERSPECTIVE_LAST_ORDERS_PRODUCT_DATE_IDX" indexType="btree">
+            <column name="product_id"/>
+            <column name="order_date"/>
+        </index>
+    </table>
+</schema>

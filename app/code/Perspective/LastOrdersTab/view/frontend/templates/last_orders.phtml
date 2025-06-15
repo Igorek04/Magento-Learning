@@ -1,0 +1,19 @@
+<?php
+/** @var \Perspective\LastOrdersTab\ViewModel\LastOrders $viewModel */
+$viewModel = $block->getData('viewModel');
+
+$orders = $viewModel->getLastOrdersByProductId($viewModel->getCurrentProductId());
+?>
+
+<h3>
+    <?php if ($orders->getSize()): ?>
+        <ul>
+            <?php foreach ($orders as $order): ?>
+                <li><?= $viewModel->formatDate($order->getData('order_date')) ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
+</h3>
+
+
+

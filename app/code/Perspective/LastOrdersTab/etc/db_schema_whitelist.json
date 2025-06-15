@@ -1,0 +1,15 @@
+{
+    "perspective_last_product_orders": {
+        "column": {
+            "id": true,
+            "product_id": true,
+            "order_date": true
+        },
+        "index": {
+            "PERSPECTIVE_LAST_PRODUCT_ORDERS_PRODUCT_ID_ORDER_DATE": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<?php
+/** @var \Perspective\ProductPriceDetails\ViewModel\PriceDetails $viewModel */
+$viewModel = $block->getData('viewModel');
+$prices = $viewModel->getVisiblePrices();
+
+foreach ($prices as $price) {
+    if ($price['value'] === null) {
+        $formattedValue = '-';
+    } else {
+        $formattedValue = number_format((float)$price['value'], 1, '.', '');
+    }
+    echo('<h4>' . $price['label'] . ': ' . $formattedValue . '</h4>');
+}
+?>

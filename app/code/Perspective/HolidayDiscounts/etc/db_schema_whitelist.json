@@ -1,0 +1,17 @@
+{
+    "perspective_holidays": {
+        "column": {
+            "holiday_id": true,
+            "title": true,
+            "description": true,
+            "discount_rate": true,
+            "status": true,
+            "start_date": true,
+            "current_day": true,
+            "end_date": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

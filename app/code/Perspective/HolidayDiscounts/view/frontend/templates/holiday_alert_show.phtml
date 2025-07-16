@@ -1,0 +1,16 @@
+<?php
+/** @var \Perspective\HolidayDiscounts\ViewModel\HolidayPriceDisplay $viewModel */
+$viewModel = $block->getData('viewModel');
+
+if ($viewModel->isHolidayAlertShow()) {
+    $holiday = $viewModel->getCurrentHoliday();
+    $title = $holiday->getTitle();
+    $description = $holiday->getDescription();
+    $discount = (int) $holiday->getDiscountRate();
+
+    echo '<div style="text-align: center;">
+            <h3 style="font-weight: bold;">' . $title . '</h3>
+            <h4>' . $description . '. Discount ' . $discount . '%</h4>
+          </div>';
+}
+?>

@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="productPriceDetails"
+                 translate="label"
+                 sortOrder="103"
+                 showInDefault="1"
+                 showInWebsite="1"
+                 showInStore="1">
+            <label>Product Price Details</label>
+            <tab>homework</tab>
+            <resource>Perspective_ProductPriceDetails::config</resource>
+
+            <group id="settings"
+                   translate="label"
+                   type="text"
+                   sortOrder="1"
+                   showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="1">
+                <label>Settings</label>
+
+                <!-- Module Enabled -->
+                <field id="enabled"
+                       translate="label"
+                       type="select"
+                       sortOrder="1"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Module:</label>
+                    <source_model>Perspective\ProductPriceDetails\Model\Config\Source\EnabledDisabled</source_model>
+                    <config_path>productPriceDetails/settings/enabled</config_path>
+                </field>
+
+                <!-- Base Price Show -->
+                <field id="base_price"
+                       translate="label"
+                       type="select"
+                       sortOrder="2"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Base price show:</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>productPriceDetails/settings/base_price</config_path>
+                    <frontend_model>Perspective\ProductPriceDetails\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+
+                <!-- Final Price Show -->
+                <field id="final_price"
+                       translate="label"
+                       type="select"
+                       sortOrder="2"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Final price show:</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>productPriceDetails/settings/final_price</config_path>
+                    <frontend_model>Perspective\ProductPriceDetails\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+
+                <!-- Special Price Show -->
+                <field id="special_price"
+                       translate="label"
+                       type="select"
+                       sortOrder="2"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Special price show:</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>productPriceDetails/settings/special_price</config_path>
+                    <frontend_model>Perspective\ProductPriceDetails\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+
+                <!-- Tier Price Show -->
+                <field id="tier_price"
+                       translate="label"
+                       type="select"
+                       sortOrder="2"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Tier price show:</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>productPriceDetails/settings/tier_price</config_path>
+                    <frontend_model>Perspective\ProductPriceDetails\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+
+                <!-- Catalog Rule Price Show -->
+                <field id="catalog_rule_price"
+                       translate="label"
+                       type="select"
+                       sortOrder="2"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Catalog rule price show:</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <config_path>productPriceDetails/settings/catalog_rule_price</config_path>
+                    <frontend_model>Perspective\ProductPriceDetails\Block\System\Config\Form\Field\Disable</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

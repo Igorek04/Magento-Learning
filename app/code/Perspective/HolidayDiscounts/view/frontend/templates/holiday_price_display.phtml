@@ -1,0 +1,14 @@
+<?php
+/** @var \Perspective\HolidayDiscounts\ViewModel\HolidayPriceDisplay $viewModel */
+$viewModel = $block->getData('viewModel');
+$product = $viewModel->getCurrentProduct();
+
+if ($viewModel->isActiveHolidayProduct($product)) {
+    $discount = (int) $viewModel->getCurrentHoliday()->getDiscountRate();
+    $discountPrice = $product->getFinalPrice();
+    $currencySymb = $viewModel->getCurrencySymbol();
+
+    echo('<h3>Price with holiday discount(-' . $discount . '%): ' . $discountPrice . $currencySymb . '</h3>');
+}
+?>
+

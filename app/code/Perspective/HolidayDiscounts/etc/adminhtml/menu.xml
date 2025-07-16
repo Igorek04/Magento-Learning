@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add 
+            id="Perspective_HolidayDiscounts::holiday_grid"
+            title="Holidays Grid"
+            module="Perspective_HolidayDiscounts"
+            sortOrder="1"
+            resource="Perspective_HolidayDiscounts::holiday_grid"
+            parent="Perspective_HomeworkDatabase::homework"
+            action="holidays/index/index"/>
+    </menu>
+</config>

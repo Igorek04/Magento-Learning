@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <mypay>
+                <active>0</active>
+                <model>Perspective\HomeworkPayment\Model\MyPay</model>
+                <title>MyPay Homework Payment</title>
+                <order_status>pending_payment</order_status>
+                <payment_action>authorize</payment_action>
+                <allowspecific>0</allowspecific>
+                <sort_order>10</sort_order>
+            </mypay>
+        </payment>
+    </default>
+</config>

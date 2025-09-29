@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="homeworks" translate="label" sortOrder="1001">
+            <label>Homework Configs</label>
+        </tab>
+        <section id="wholesalers"
+                 translate="label"
+                 sortOrder="100"
+                 showInDefault="1"
+                 showInWebsite="1"
+                 showInStore="1">
+            <label>Wholesaler Settings</label>
+            <tab>homeworks</tab>
+            <resource>Perspective_HomeworkWholesalers::config</resource>
+
+            <group id="standart_wholesaler"
+                   translate="label"
+                   type="text"
+                   sortOrder="10"
+                   showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="1">
+                <label>Standart Wholesaler</label>
+
+                <field id="group"
+                       translate="label"
+                       type="select"
+                       sortOrder="1"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Select group:</label>
+                    <source_model>Magento\Customer\Model\Config\Source\Group</source_model>
+                    <backend_model>Perspective\HomeworkWholesalers\Model\Config\Backend\GroupsValidation</backend_model>
+                    <comment>If group not selected, "homework_standart_wholesaler" is used default.</comment>
+                    <tooltip>Rules (one shipping and payment method below) apply to this group on checkout when condition is reached.</tooltip>
+                </field>
+                <field id="condition"
+                       translate="label"
+                       type="text"
+                       sortOrder="2"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Minimum order quantity(items):</label>
+                    <validate>required-entry validate-number validate-digits</validate>
+                    <comment>(condition)</comment>
+                </field>
+                <field id="payment_method"
+                       translate="label"
+                       type="select"
+                       sortOrder="3"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Payment method to apply:</label>
+                    <source_model>Perspective\HomeworkWholesalers\Model\Config\Source\ActivePaymentList</source_model>
+                    <comment>(list of active payments)</comment>
+                </field>
+                <field id="shipping_method"
+                       translate="label"
+                       type="select"
+                       sortOrder="4"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Shipping method to apply:</label>
+                    <source_model>Perspective\HomeworkWholesalers\Model\Config\Source\ActiveShippingList</source_model>
+                    <comment>(list of active carriers)</comment>
+                </field>
+            </group>
+
+
+            <group id="large_wholesaler"
+                   translate="label"
+                   type="text"
+                   sortOrder="10"
+                   showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="1">
+                <label>Large Wholesaler</label>
+
+                <field id="group"
+                       translate="label"
+                       type="select"
+                       sortOrder="1"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Select group:</label>
+                    <source_model>Magento\Customer\Model\Config\Source\Group</source_model>
+                    <backend_model>Perspective\HomeworkWholesalers\Model\Config\Backend\GroupsValidation</backend_model>
+                    <comment>If group not selected, "homework_large_wholesaler" is used default.</comment>
+                    <tooltip>Rules (free shipping and payment method below) apply to this group on checkout when condition is reached.</tooltip>
+                </field>
+                <field id="condition"
+                       translate="label"
+                       type="text"
+                       sortOrder="2"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Minimum order price</label>
+                    <validate>required-entry validate-number validate-zero-or-greater</validate>
+                    <comment>(condition)</comment>
+                </field>
+                <field id="payment_method"
+                       translate="label"
+                       type="select"
+                       sortOrder="3"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Payment method to apply:</label>
+                    <source_model>Perspective\HomeworkWholesalers\Model\Config\Source\ActivePaymentList</source_model>
+                    <comment>(list of active payments)</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

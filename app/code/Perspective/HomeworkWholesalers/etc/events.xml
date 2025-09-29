@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="payment_method_is_active">
+        <observer name="perspective_homework_wholesalers_payment_filter" 
+                  instance="Perspective\HomeworkWholesalers\Observer\PaymentFilter"
+                  disabled="false" />
+    </event>
+</config>

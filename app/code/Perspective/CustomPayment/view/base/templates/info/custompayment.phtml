@@ -1,0 +1,12 @@
+<?php
+/**
+ * @var $block \Perspective\CustomPayment\Block\Info\CustomPaymentt
+ */
+?>
+<div class="payment-method purchase order">
+    <div class="title"><?= $block->escapeHtml($block->getMethod()->getTitle()) ?></div>
+    <div class="content">
+        <strong><?= $block->escapeHtml(__('Assistant ID')) ?></strong>
+        <span class="number"><?= $block->escapeHtml($block->getInfo()->getData('assistant_id')) ?></span>
+    </div>
+</div>

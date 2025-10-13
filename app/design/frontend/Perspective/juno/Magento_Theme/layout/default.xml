@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/test_logo.png</argument>
+                <argument name="logo_width" xsi:type="string">150</argument>
+                <argument name="logo_height" xsi:type="string">60</argument>
+            </arguments>
+        </referenceBlock>
+
+        <referenceBlock name="report.bugs" display="false"/>
+
+        <referenceContainer name="footer">
+            <container name="phone-number-container" before="-" htmlTag="div" htmlId="phone-number-container">
+                <block name="phone-number" template="Juno_Theme::footer/phone-number.phtml" ifconfig="general/store_information/phone">
+                    <arguments>
+                        <argument name="phone_number_view_model" xsi:type="object">Juno\Theme\ViewModel\PhoneNumber</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>

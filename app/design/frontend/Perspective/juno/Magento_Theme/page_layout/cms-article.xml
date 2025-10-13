@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <update handle="1column" />
+    
+    <!-- Remove page-main class and replace it with page-main-article to remove page gutters -->
+    <referenceContainer name="main.content" 
+                        htmlTag="main" htmlClass="page-main-article" />
+</layout>

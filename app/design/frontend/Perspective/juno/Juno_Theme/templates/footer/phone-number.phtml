@@ -1,0 +1,11 @@
+<?php 
+    /** @var $block \Magento\Framework\View\Element\Template */
+    /** @var $phoneNumberViewModel Juno\Theme\ViewModel\PhoneNumber */
+    /** @var Magento\Framework\Escaper $escaper */
+    $phoneNumberViewModel = $block->getData('phone_number_view_model'); 
+?>
+
+
+<div class="phone-number" data-aos="fade-down">
+    <?= __('Phone number: %1 %2', $escaper->escapeHtml($phoneNumberViewModel->getPhoneNumber()), $block->getBaseUrl()) ?>
+</div>

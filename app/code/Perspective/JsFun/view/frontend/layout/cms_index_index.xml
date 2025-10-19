@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Use referenceContainer or referenceBlock to reference the node you wish to target... -->
+        <referenceContainer name="content">
+            <!-- ...and add your template to the layout XML as a standard block template. -->
+            <block name="vue.test" template="Perspective_JsFun::vue-test.phtml">
+                <arguments>
+                    <argument name="message_view_model" xsi:type="object">Perspective\JsFun\ViewModel\Message</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

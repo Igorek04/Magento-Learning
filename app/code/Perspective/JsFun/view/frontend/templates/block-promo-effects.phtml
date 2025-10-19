@@ -1,0 +1,20 @@
+<script>
+    // You can then call your custom JavaScript module using the syntax:
+    // <Vendor_Module>/js/filename.js, <Vendor_Module> mapping to view/frontend/web
+    // Defining 'Macademy_JsFun/js/fade-in-element' maps to:
+    // app/code/Macademy/JsFun/view/frontend/web/js/fade-in-element.js
+    require([
+        'jquery',
+        'fadeInElement'
+    ], function(
+        $,
+        fadeInElement
+    ) {
+        'use strict';
+        // The $ variable is now accessible within this function to access the 'jquery' library.
+        $(function() {
+            // Arguments allow re-use and make the custom module composable.
+            fadeInElement('.block-promo');
+        });
+    });
+</script>

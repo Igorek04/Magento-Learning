@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+The HTTP Content-Security-Policy response header allow you to control what pages to load for
+specific
+user agents.
+This mostly involves defining rules for specific origins or script endpoints, and helps guard
+against
+cross-site scripting attacks (XSS).
+-->
+<csp_whitelist
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <!-- Magento expects a "policies" node, with any number of "policy" children nodes. -->
+    <policies>
+        <!-- The id to specify here is what sets the "key" of the Content-Security-Policy header. -->
+        <policy id="script-src">
+            <values>
+                <!--
+This is the "value" to the Content-Security-Policty key:value store.
+The id is arbitrary but must be unique, while the type is expected to be "host".
+The value for this child is finally the full URL you wish to allowlist.
+-->
+                <value id="jsdelivr" type="host">https://cdn.jsdelivr.net</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>
+<!--
+The above nodes create an HTTP header that resembles:
+Content-Security-Policy: script-src 'self' https://cdn.jsdelivr.net;
+This will allow HTTP requests made to https://cdn.jsdelivr.net to succeed.
+-->

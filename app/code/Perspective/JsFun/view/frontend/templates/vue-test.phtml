@@ -1,0 +1,73 @@
+<?php
+/**
+* The view model is then referenced by it's name and assigned to a variable, using PHP & Magento
+* naming conventions of camelCase for variable names. Also remember to typehint your view model.
+*/
+/** @var \Perspective\JsFun\ViewModel\Message $messageViewModel */
+$messageViewModel = $block->getData('message_view_model');
+?>
+
+<!--Declarative method2 - x-magento-init without id-->
+<div id="vue-test">
+    <h1>{{ message }}</h1>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Perspective_JsFun/js/vue-test": {
+                "message": "<?= $messageViewModel->getMessage() // Call your function here... ?>"
+            }
+        }
+    }
+</script>
+
+<!--Declarative method2 - x-magento-init 
+<div id="vue-test">
+    <h1>{{ message }}</h1>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#vue-test": {
+            "Perspective_JsFun/js/vue-test": {
+                "message": "Declarative test"
+            }
+        }
+    }
+</script>
+-->
+
+
+<!--Declarative method1 - data-mage-init
+A special "data-mage-init" HTML attribute is declared on the main DOM element you wish to initialize,
+and then the JavaScript component and properties are passed to it as a JSON string.
+
+<div id="vue-test"
+    data-mage-init='{ "Perspective_JsFun/js/vue-test": { "message": "Another testtstststst" } }'>
+    <h1>{{ message }}</h1>
+</div>
+-->
+
+
+<!-- 
+ Imperative method
+<div id="vue-test">
+    <h1>{{ message }}</h1>
+</div>
+
+<script>
+    /**
+     * Define the `require` statement inline of your PHTML template. RequireJS will automatically pull in
+     * the required dependencies, and fire off your callback after they have resolved.
+     */
+    require(['vue'], function(Vue) {
+        'use strict'
+        new Vue({
+            el: '#vue-test',
+            data: {
+                message: 'This is a test'
+            }
+        });
+    });
+</script>
+-->

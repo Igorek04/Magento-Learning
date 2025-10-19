@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Targeting the "content" container places the block in the main area of the page. -->
+        <referenceContainer name="content">
+            <!-- Create a standard layout block with a reference to the custom PHTML template. -->
+            <block name="block.promo.effects" template="Perspective_JsFun::block-promo-effects.phtml" />
+        </referenceContainer>
+    </body>
+</page>

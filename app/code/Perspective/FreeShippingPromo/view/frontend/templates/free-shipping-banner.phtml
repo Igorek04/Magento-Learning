@@ -1,0 +1,38 @@
+<?php
+/* @var $block Magento\Framework\View\Element\Template */
+
+/* @var $shippingConfigViewModel Perspective\FreeShippingPromo\ViewModel\ShippingConfig */
+$shippingConfigViewModel = $block->getData('shipping_config_view_model');
+
+$jsLayout = json_decode($block->getJsLayout(), true); //json -> php array
+//change value from js(freeShippingThreshold) to value from admin config
+$jsLayout['components']['free-shipping-banner']['config']['freeShippingThreshold'] = $shippingConfigViewModel->getFreeShippingThreshold();
+?>
+
+<div id="free-shipping-banner" data-bind="scope: 'free-shipping-banner'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#free-shipping-banner": {
+            "Magento_Ui/js/core/app": <?= json_encode($jsLayout) //php array to json ?>
+        }
+    }
+</script>
+
+<!-- 
+<script type="text/x-magento-init">
+    {
+        "#free-shipping-banner": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "free-shipping-banner": {
+                        "component": "Perspective_FreeShippingPromo/js/free-shipping-banner"
+                    }
+                }
+            }
+        }
+    }
+</script>
+-->

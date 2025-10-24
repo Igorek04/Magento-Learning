@@ -1,0 +1,52 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<div id="opc-sidebar"
+     data-bind="afterRender:setModalElement, mageInit: {
+    'Magento_Ui/js/modal/modal':{
+        'type': 'custom',
+        'modalClass': 'opc-sidebar opc-summary-wrapper',
+        'wrapperClass': 'checkout-container',
+        'parentModalClass': '_has-modal-custom',
+        'responsive': true,
+        'responsiveClass': 'custom-slide',
+        'overlayClass': 'modal-custom-overlay',
+        'buttons': []
+    }}">
+
+    <!-- ko foreach: getRegion('summary') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    <!--/ko-->
+
+    <div class="opc-block-shipping-information">
+        <!-- ko foreach: getRegion('shipping-information') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+    </div>
+
+
+
+        <!-- new -->
+
+    <!-- templates by region-->
+    <div class="opc-block-shipping-information">
+        <!-- ko foreach: getRegion('teststst') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!-- /ko -->
+    </div>
+
+    <!-- template by name-->
+    <!--<div class="opc-block-shipping-information" data-bind="scope: requestChild('shippingTime')">-->
+        <!-- k o template: getTemplate() --><!-- /k o -->
+    <!--</div>-->
+
+
+    <!-- get all child components from xml / best way-->
+    <!-- k o foreach: elems() -->
+        <!-- k o template: getTemplate() --><!-- /k o -->
+    <!-- /k o -->
+</div>
